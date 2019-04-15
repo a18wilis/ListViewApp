@@ -16,5 +16,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- You need to enter your components here -->
-
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/my_ListView"
+    />
 </android.support.constraint.ConstraintLayout>
