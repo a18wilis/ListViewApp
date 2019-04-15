@@ -7,5 +7,6 @@
     android:padding="20dp"
     android:fontFamily="sans-serif-light"
     android:height="175dp"
+    android:textAlignment="center"
     android:id="@+id/list_item_textview">
 </TextView>
