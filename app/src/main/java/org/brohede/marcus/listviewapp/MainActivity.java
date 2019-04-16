@@ -18,11 +18,16 @@ public class MainActivity extends AppCompatActivity {
     private int[] mountainHeights ={4478,4808,6190};
     // Create ArrayLists from the raw data above and use these lists when populating your ListView.
     private ArrayList<String> listData = new ArrayList<>(Arrays.asList(mountainNames));
+    private ArrayList<Mountain> mountainArrayList=new ArrayList<>();
 
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        for(int i = 0; i < mountainNames.length; i++){
+            mountainArrayList.add(new Mountain(mountainNames[i],mountainLocations[i],mountainHeights[i]));
+        }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item_textview, R.id.list_item_textview, listData);
         ListView my_listview=(ListView)findViewById(R.id.my_listview);
@@ -32,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String text = new String("Toast");
-                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), mountainArrayList.get(position).info(), Toast.LENGTH_SHORT).show();
             }
         });
     }
