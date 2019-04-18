@@ -13,9 +13,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
-    private String[] mountainLocations = {"Alps","Alps","Alaska"};
-    private int[] mountainHeights ={4478,4808,6190};
+    private String[] mountainNames = {"Matterhorn","Mont Blanc","Denali", "Billingen"}; //Ifall man vill att nya berg ska skapas så får man inmata datan i de olika bergarrayerna
+    private String[] mountainLocations = {"Alps","Alps","Alaska", "Sweden"};
+    private int[] mountainHeights ={4478,4808,6190, 304};
     // Create ArrayLists from the raw data above and use these lists when populating your ListView.
     private ArrayList<String> listData = new ArrayList<>(Arrays.asList(mountainNames));
     private ArrayList<Mountain> mountainArrayList=new ArrayList<>();
@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
             mountainArrayList.add(new Mountain(mountainNames[i],mountainLocations[i],mountainHeights[i]));
         }
 
-        //Om man vill lägga till ett berg manuell får man göra det här med följande kodrad
-        //mountainArrayList.add(new Mountain("namn","plats","höjd"));
 
         //Skapar en arrayadapter som lägger ihop ListViewen från list_item_textview och inställningarna från activity_main med datan som ska användas (ArrayAdaptern)
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item_textview, R.id.list_item_textview, listData);
